@@ -1,4 +1,7 @@
 from locust import HttpLocust, TaskSet, task, between
+from locust.web import app
+from src import report
+app.add_url_rule('/htmlreport', 'htmlreport', report.download_report)
 
 class WebsiteTasks(TaskSet):
     # def on_start(self):
